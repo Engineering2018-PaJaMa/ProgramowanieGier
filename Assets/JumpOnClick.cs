@@ -10,6 +10,7 @@ public class JumpOnClick : MonoBehaviour {
     private Rigidbody2D myRigidbody2D;
     private bool canJump;
     private bool isGrounded;
+
     // Use this for initialization
     void Start()
     {
@@ -22,9 +23,12 @@ public class JumpOnClick : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0) && canJump && isGrounded)
         {
-            var angle = 45;
+
+            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
             myRigidbody2D.AddForce(dir * jumpForce);
             canJump = false;

@@ -61,9 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RepeatingBackground.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\JumpOnClick.cs" />
+    <Compile Include="Assets\Scripts\RepeatingBackground.cs" />
     <Compile Include="Assets\Scripts\SliceDestroy.cs" />
     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">

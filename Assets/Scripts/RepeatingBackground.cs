@@ -2,38 +2,106 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepeatingBackground : MonoBehaviour {
+public class RepeatingBackground : MonoBehaviour
+{
 
-    private BoxCollider2D groundCollider;       //This stores a reference to the collider attached to the Ground.
-    private float groundHorizontalLength;       //A float to store the x-axis length of the collider2D attached to the Ground GameObject.
+    public float Speed = 1;
+    public List<SpriteRenderer> sprites = new List<SpriteRenderer>();
+    public Direction Dir = Direction.Right;
 
-    //Awake is called before Start.
+
+    private float heightCamera;
+    private float widthCamera;
+
+    private Vector3 PositionCam;
+    private Camera cam;
+
     private void Awake()
     {
-        //Get and store a reference to the collider2D attached to Ground.
-        groundCollider = GetComponent<BoxCollider2D>();
-        //Store the size of the collider along the x axis (its length in units).
-        groundHorizontalLength = groundCollider.size.x;
+        cam = Camera.main;
+        heightCamera = 2f * cam.orthographicSize;
+        widthCamera = heightCamera * cam.aspect;
     }
 
-    //Update runs once per frame
-    private void Update()
+    void Update()
     {
-        //Check if the difference along the x axis between the main Camera and the position of the object this is attached to is greater than groundHorizontalLength.
-        if (transform.position.x < -groundHorizontalLength)
+        foreach (var item in sprites)
         {
-            //If true, this means this object is no longer visible and we can safely move it forward to be re-used.
-            RepositionBackground();
+            if (Dir == Direction.Left)
+            {
+                if (item.transform.position.x + item.bounds.size.x / 2 < cam.transform.position.x - widthCamera / 2)
+                {
+                    SpriteRenderer sprite = sprites[0];
+                    foreach (var i in sprites)
+                    {
+                        if (i.transform.position.x > sprite.transform.position.x)
+                            sprite = i;
+                    }
+
+                    item.transform.position = new Vector2((sprite.transform.position.x + (sprite.bounds.size.x / 2) + (item.bounds.size.x / 2)), sprite.transform.position.y);
+                }
+            }
+            else if (Dir == Direction.Right)
+            {
+                if (item.transform.position.x - item.bounds.size.x / 2 > cam.transform.position.x + widthCamera / 2)
+                {
+                    SpriteRenderer sprite = sprites[0];
+                    foreach (var i in sprites)
+                    {
+                        if (i.transform.position.x < sprite.transform.position.x)
+                            sprite = i;
+                    }
+
+                    item.transform.position = new Vector2((sprite.transform.position.x - (sprite.bounds.size.x / 2) - (item.bounds.size.x / 2)), sprite.transform.position.y);
+                }
+            }
+            else if (Dir == Direction.Down)
+            {
+                if (item.transform.position.y + item.bounds.size.y / 2 < cam.transform.position.y - heightCamera / 2)
+                {
+                    SpriteRenderer sprite = sprites[0];
+                    foreach (var i in sprites)
+                    {
+                        if (i.transform.position.y > sprite.transform.position.y)
+                            sprite = i;
+                    }
+
+                    item.transform.position = new Vector2(sprite.transform.position.x, (sprite.transform.position.y + (sprite.bounds.size.y / 2) + (item.bounds.size.y / 2)));
+                }
+            }
+            else if (Dir == Direction.Up)
+            {
+                if (item.transform.position.y - item.bounds.size.y / 2 > cam.transform.position.y + heightCamera / 2)
+                {
+                    SpriteRenderer sprite = sprites[0];
+                    foreach (var i in sprites)
+                    {
+                        if (i.transform.position.y < sprite.transform.position.y)
+                            sprite = i;
+                    }
+
+                    item.transform.position = new Vector2(sprite.transform.position.x, (sprite.transform.position.y - (sprite.bounds.size.y / 2) - (item.bounds.size.y / 2)));
+                }
+            }
+
+
+            if (Dir == Direction.Left)
+                item.transform.Translate(new Vector2(Time.deltaTime * Speed * -1, 0));
+            else if (Dir == Direction.Right)
+                item.transform.Translate(new Vector2(Time.deltaTime * Speed, 0));
+            else if (Dir == Direction.Down)
+                item.transform.Translate(new Vector2(0, Time.deltaTime * Speed * -1));
+            else if (Dir == Direction.Up)
+                item.transform.Translate(new Vector2(0, Time.deltaTime * Speed));
         }
-    }
 
-    //Moves the object this script is attached to right in order to create our looping background effect.
-    private void RepositionBackground()
-    {
-        //This is how far to the right we will move our background object, in this case, twice its length. This will position it directly to the right of the currently visible background object.
-        Vector2 groundOffSet = new Vector2(groundHorizontalLength * 2f, 0);
-
-        //Move this object from it's position offscreen, behind the player, to the new position off-camera in front of the player.
-        transform.position = (Vector2)transform.position + groundOffSet;
     }
+}
+
+public enum Direction
+{
+    Up,
+    Down,
+    Left,
+    Right
 }

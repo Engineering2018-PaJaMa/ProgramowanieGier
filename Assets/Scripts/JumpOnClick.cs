@@ -33,6 +33,16 @@ public class JumpOnClick : MonoBehaviour {
             myRigidbody2D.AddForce(dir * jumpForce);
             canJump = true;
             isGrounded = true;
+
+            if (!canJump)
+            {
+                timeBetweenJumps -= Time.deltaTime;
+                if (timeBetweenJumps <= 0.0f)
+                {
+                    timeBetweenJumps = timeBetweenJumpsCount;
+                    canJump = true;
+                }
+            }
         }
     }
 }

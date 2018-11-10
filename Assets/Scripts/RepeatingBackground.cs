@@ -97,7 +97,6 @@ public class RepeatingBackground : MonoBehaviour
 
     }
 }
-
 public enum Direction
 {
     Up,

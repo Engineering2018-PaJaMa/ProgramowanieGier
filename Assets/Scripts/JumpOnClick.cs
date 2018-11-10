@@ -31,17 +31,16 @@ public class JumpOnClick : MonoBehaviour {
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
             myRigidbody2D.AddForce(dir * jumpForce);
-            canJump = true;
+            canJump = false;
             isGrounded = true;
-
-            if (!canJump)
+        }
+        if (!canJump)
+        {
+            timeBetweenJumps -= Time.deltaTime;
+            if (timeBetweenJumps <= 0.0f)
             {
-                timeBetweenJumps -= Time.deltaTime;
-                if (timeBetweenJumps <= 0.0f)
-                {
-                    timeBetweenJumps = timeBetweenJumpsCount;
-                    canJump = true;
-                }
+                timeBetweenJumps = timeBetweenJumpsCount;
+                canJump = true;
             }
         }
     }

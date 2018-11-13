@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1088559644}
   player: {fileID: 1066944059}
-  spawnRate: 0.5
+  spawnRate: 0.4
 --- !u!4 &1551525681
 Transform:
   m_ObjectHideFlags: 0

@@ -62,9 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\FolowBackground.cs" />
     <Compile Include="Assets\Scripts\JumpOnClick.cs" />
     <Compile Include="Assets\Scripts\PointCounter.cs" />
     <Compile Include="Assets\Scripts\RepeatingBackground.cs" />
+    <Compile Include="Assets\Scripts\RepeatingSky.cs" />
     <Compile Include="Assets\Scripts\SliceDestroy.cs" />
     <Compile Include="Assets\Scripts\SpawnScript.cs" />
     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />

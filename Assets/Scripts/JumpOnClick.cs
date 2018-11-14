@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpOnClick : MonoBehaviour {
-
+public class JumpOnClick : MonoBehaviour 
+{
     private float startTime, endTime;
     private Rigidbody2D myRigidbody2D;
     private bool canJump;
 
-    // Use this for initialization
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
@@ -17,7 +16,6 @@ public class JumpOnClick : MonoBehaviour {
         endTime = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && canJump)

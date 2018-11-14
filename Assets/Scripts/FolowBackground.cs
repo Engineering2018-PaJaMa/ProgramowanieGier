@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FolowBackground : MonoBehaviour {
-
-    ///You may consider adding a rigid body to the zombie for accurate physics simulation
-    private GameObject wayPoint;
+public class FolowBackground : MonoBehaviour 
+{
+    private GameObject wayPoint;    ///You may consider adding a rigid body to the zombie for accurate physics simulation
     private Vector3 wayPointPos;
-    //This will be the zombie's speed. Adjust as necessary.
-    private float speed = 100.0f;
+    private float speed = 100.0f;   //This will be the zombie's speed. Adjust as necessary.
     void Start()
     {
         //At the start of the game, the zombies will find the gameobject called wayPoint.

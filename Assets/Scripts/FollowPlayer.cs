@@ -2,26 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour {
-
-    // Use this for initialization
-    //In the editor, add your wayPoint gameobject to the script.
-    public GameObject wayPoint;
-    //This is how often your waypoint's position will update to the player's position
-    private float timer = 0.1f;
+public class FollowPlayer : MonoBehaviour 
+{
+    // Use this for initialization.
+    // In the editor, add your wayPoint gameobject to the script.
+    // This is how often your waypoint's position will update to the player's position.
+    public GameObject wayPoint;     
 
     void Update()
     {
-        //if (timer > 0)
-        //{
-        //    timer -= Time.deltaTime;
-        //}
-        //if (timer <= 0)
-        //{
-        //    //The position of the waypoint will update to the player's position
-        //    UpdatePosition();
-        //    timer = 0.1f;
-        //}
         UpdatePosition();
     }
 

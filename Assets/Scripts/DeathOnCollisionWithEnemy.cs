@@ -5,8 +5,8 @@ using UnityEngine;
 public class DeathOnCollisionWithEnemy : MonoBehaviour 
 {
     public GameObject player;
-    public GameObject enemyOnCloud;
-    public GameObject fatEnemy;
+
+    bool gameStop = false;
 
 	// Use this for initialization
 	void Start () 
@@ -14,12 +14,20 @@ public class DeathOnCollisionWithEnemy : MonoBehaviour
 		
 	}
 
+    private void Update()
+    {
+        if(gameStop)
+        {
+            Application.Quit();
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "BodyProtoplastaTag")
         {
             Destroy(player);
-            Application.Quit();
+            gameStop = true;
         }
     }
 }

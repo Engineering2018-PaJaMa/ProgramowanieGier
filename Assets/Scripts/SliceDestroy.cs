@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class SliceDestroy : MonoBehaviour {
 
     public GameObject entityToDestoy;
+    public GameObject player;
     public Text pointsToShow;
 
-    static int points = 0;
+    static float points = 0;
 
     // Use this for initialization
     void Start () {
@@ -21,7 +22,7 @@ public class SliceDestroy : MonoBehaviour {
     
     void OnMouseOver()
     {
-        points = points + 1;
+        points = points + 10;
         Destroy(entityToDestoy);
     }
 }

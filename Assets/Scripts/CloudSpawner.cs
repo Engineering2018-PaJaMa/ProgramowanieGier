@@ -15,10 +15,11 @@ public class CloudSpawner : MonoBehaviour {
 
     float playerPositionX;
     float playerPositionY;
+    float playerStartingPositionX;
 
     // Use this for initialization
     void Start () {
-        
+        playerStartingPositionX = player.transform.position.x;
     }
     
     // Update is called once per frame
@@ -26,11 +27,11 @@ public class CloudSpawner : MonoBehaviour {
         playerPositionX = player.transform.position.x;
         playerPositionY = player.transform.position.y;
 
-        if (Time.time > nextSpawn)
+        if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
         {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(playerPositionX + 5f, playerPositionX + 30f);
-            randY = Random.Range(playerPositionY -5f, playerPositionY + 30f);
+            randX = Random.Range(playerPositionX + 15f, playerPositionX + 30f);
+            randY = Random.Range(playerPositionY -5f, playerPositionY + 20f);
             whereToSpawn = new Vector2(randX, randY);
             Instantiate(cloud, whereToSpawn, Quaternion.identity);
         }

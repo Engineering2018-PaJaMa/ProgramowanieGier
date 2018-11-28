@@ -905,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86f98844f36c4f47b6c005657fc1133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsToShow: {fileID: 0}
 --- !u!114 &1066944065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,7 +956,7 @@ GameObject:
   - component: {fileID: 1088559648}
   - component: {fileID: 1088559649}
   - component: {fileID: 1088559647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyProtoplasta
   m_TagString: BodyProtoplastaTag
   m_Icon: {fileID: 0}
@@ -1493,7 +1494,7 @@ AreaEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_UseGlobalAngle: 0
   m_ForceAngle: 45
   m_ForceMagnitude: 100

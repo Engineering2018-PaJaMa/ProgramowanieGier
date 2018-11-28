@@ -15,10 +15,11 @@ public class SpawnScript : MonoBehaviour
     float nextSpawn = 0.0f;
     float playerPositionX;
     float playerPositionY;
+    float playerStartingPositionX;
 
 	// Use this for initialization
 	void Start () {
-		
+        playerStartingPositionX = player.transform.position.x;
 	}
 	
 	// Update is called once per frame
@@ -26,7 +27,7 @@ public class SpawnScript : MonoBehaviour
         playerPositionX = player.transform.position.x;
         playerPositionY = player.transform.position.y;
 
-        if (Time.time > nextSpawn)
+        if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
         {
             nextSpawn = Time.time + spawnRate;
             randX = Random.Range(playerPositionX + 10f, playerPositionX + 20f);

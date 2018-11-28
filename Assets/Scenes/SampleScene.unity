@@ -386,7 +386,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -416,7 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790e80cb48e254892a9f3be5af6e0f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
 --- !u!1 &496764990
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,8 +791,10 @@ GameObject:
   - component: {fileID: 1066944063}
   - component: {fileID: 1066944064}
   - component: {fileID: 1066944065}
+  - component: {fileID: 1066944067}
+  - component: {fileID: 1066944066}
   m_Layer: 0
-  m_Name: Body
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,6 +917,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPoint: {fileID: 2044941449}
+--- !u!114 &1066944066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1066944059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ce4585703d34dc1b7de6da1548362c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1066944059}
+--- !u!114 &1066944067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1066944059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63262ff7581114f94bee91d30eb3c8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  spawnRate: 2
 --- !u!1 &1088559644
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,12 +952,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1088559646}
   - component: {fileID: 1088559645}
-  - component: {fileID: 1088559647}
   - component: {fileID: 1088559648}
   - component: {fileID: 1088559649}
+  - component: {fileID: 1088559647}
   m_Layer: 0
   m_Name: BodyProtoplasta
-  m_TagString: Untagged
+  m_TagString: BodyProtoplastaTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1006,6 +1033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityToDestoy: {fileID: 1088559644}
+  player: {fileID: 1066944059}
   pointsToShow: {fileID: 259489571}
 --- !u!58 &1088559648
 CircleCollider2D:

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnScript : MonoBehaviour {
+public class SpawnerEnemy : MonoBehaviour {
     public GameObject enemy;
     public GameObject player;
     public float spawnRate = 2f;

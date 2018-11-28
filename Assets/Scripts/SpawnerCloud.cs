@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudSpawner : MonoBehaviour {
+public class SpawnerCloud : MonoBehaviour {
     public GameObject cloud;
     public GameObject player;
     public float spawnRate = 2f;

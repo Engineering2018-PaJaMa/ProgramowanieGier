@@ -791,7 +791,6 @@ GameObject:
   - component: {fileID: 1066944063}
   - component: {fileID: 1066944064}
   - component: {fileID: 1066944065}
-  - component: {fileID: 1066944067}
   - component: {fileID: 1066944066}
   m_Layer: 0
   m_Name: Player
@@ -930,20 +929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1066944059}
---- !u!114 &1066944067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1066944059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63262ff7581114f94bee91d30eb3c8af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  player: {fileID: 0}
-  spawnRate: 2
 --- !u!1 &1088559644
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +942,7 @@ GameObject:
   - component: {fileID: 1088559649}
   - component: {fileID: 1088559647}
   m_Layer: 8
-  m_Name: BodyProtoplasta
+  m_Name: Enemy
   m_TagString: BodyProtoplastaTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,10 +1261,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551525681}
-  - component: {fileID: 1551525680}
   - component: {fileID: 1551525682}
+  - component: {fileID: 1551525680}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,10 +1278,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551525679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63262ff7581114f94bee91d30eb3c8af, type: 3}
+  m_Script: {fileID: 11500000, guid: bc15d95e4597f4f9d9b61b77b3cb99e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1088559644}
+  cloud: {fileID: 1713511747}
   player: {fileID: 1066944059}
   spawnRate: 0.4
 --- !u!4 &1551525681
@@ -1320,10 +1305,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551525679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2b68c8dcff344c89531474b910b9e4, type: 3}
+  m_Script: {fileID: 11500000, guid: a915cb654e3f241c2b26916c72032bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloud: {fileID: 1713511747}
+  enemy: {fileID: 1088559644}
   player: {fileID: 1066944059}
   spawnRate: 0.4
 --- !u!1 &1552199954
@@ -1477,7 +1462,7 @@ GameObject:
   - component: {fileID: 1713511748}
   - component: {fileID: 1713511752}
   m_Layer: 0
-  m_Name: CloudProtoplasta
+  m_Name: Cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

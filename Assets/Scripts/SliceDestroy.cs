@@ -9,20 +9,18 @@ public class SliceDestroy : MonoBehaviour {
     public GameObject player;
     public Text pointsToShow;
 
-    static float points = 0;
+    public static float points = 0;
 
     // Use this for initialization
     void Start () {
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-        print(JumpOnClick.isFlying);
         if (JumpOnClick.isFlying) {
-            points = points + 1;
+            points += 0.01f;
         }
-        pointsToShow.text = "Points: " + points.ToString();
+        pointsToShow.text = "Points: " + Mathf.Round(points).ToString();
     }
     
     void OnMouseOver()

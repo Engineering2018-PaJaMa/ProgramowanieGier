@@ -8,7 +8,7 @@ public class JumpOnClick : MonoBehaviour
     private float startTime, endTime;
     private Rigidbody2D myRigidbody2D;
     private bool canJump;
-    public static bool isFlying;
+    public static bool isFlying = false;
     public Text pointsToShow;
 
     void Start()

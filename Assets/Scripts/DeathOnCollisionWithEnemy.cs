@@ -31,8 +31,8 @@ public class DeathOnCollisionWithEnemy : MonoBehaviour
             Destroy(player);
             gameStop = true;
             JumpOnClick.isFlying = false;
-           SceneManager.LoadScene("Menu Scene");
-
+            SceneManager.LoadScene("Menu Scene");
+            SliceDestroy.points = 0;
         }
     }
 }

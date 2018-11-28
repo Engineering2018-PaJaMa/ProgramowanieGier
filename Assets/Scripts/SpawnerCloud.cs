@@ -2,38 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnScript : MonoBehaviour 
-{
-    public GameObject enemy;
+public class CloudSpawner : MonoBehaviour {
+    public GameObject cloud;
     public GameObject player;
     public float spawnRate = 2f;
 
-    Vector2 whereToSpawn;
-
     float randX;
     float randY;
+    Vector2 whereToSpawn;
     float nextSpawn = 0.0f;
     float playerPositionX;
     float playerPositionY;
     float playerStartingPositionX;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         playerStartingPositionX = player.transform.position.x;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    
+    // Update is called once per frame
+    void Update () {
         playerPositionX = player.transform.position.x;
         playerPositionY = player.transform.position.y;
 
         if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
         {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(playerPositionX + 10f, playerPositionX + 20f);
-            randY = Random.Range(playerPositionY, playerPositionY + 5f);
+            randX = Random.Range(playerPositionX + 15f, playerPositionX + 30f);
+            randY = Random.Range(playerPositionY -5f, playerPositionY + 20f);
             whereToSpawn = new Vector2(randX, randY);
-            Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            Instantiate(cloud, whereToSpawn, Quaternion.identity);
         }
-	}
+    }
 }

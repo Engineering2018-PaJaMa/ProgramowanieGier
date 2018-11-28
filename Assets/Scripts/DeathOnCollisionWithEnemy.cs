@@ -20,7 +20,7 @@ public class DeathOnCollisionWithEnemy : MonoBehaviour
         if(gameStop)
         {
             //Application.Quit();
-            SceneManager.LoadScene("MenuScene");
+            //SceneManager.LoadScene("Menu Scene");
         }
     }
 
@@ -31,6 +31,7 @@ public class DeathOnCollisionWithEnemy : MonoBehaviour
             Destroy(player);
             gameStop = true;
             JumpOnClick.isFlying = false;
+           SceneManager.LoadScene("Menu Scene");
 
         }
     }

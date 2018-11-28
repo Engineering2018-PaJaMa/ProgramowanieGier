@@ -17,6 +17,11 @@ public class SliceDestroy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        print(JumpOnClick.isFlying);
+        if (JumpOnClick.isFlying) {
+            points = points + 1;
+        }
         pointsToShow.text = "Points: " + points.ToString();
     }
     

@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class JumpOnClick : MonoBehaviour 
+public class JumpOnClick : MonoBehaviour
 {
     private float startTime, endTime;
     private Rigidbody2D myRigidbody2D;
     private bool canJump;
+    public static bool isFlying;
+    public Text pointsToShow;
 
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         canJump = true;
+        isFlying = false;
         startTime = 0f;
         endTime = 0f;
     }
@@ -35,6 +39,7 @@ public class JumpOnClick : MonoBehaviour
             Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
             myRigidbody2D.AddForce(dir * power);
             canJump = false;
+            isFlying = true;
 
         }
     }

@@ -28,8 +28,8 @@ public class SpawnerEnemy : MonoBehaviour {
         if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
         {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(playerPositionX + 25f, playerPositionX + 45f);
-            randY = Random.Range(playerPositionY, playerPositionY + 5f);
+            randX = Random.Range(playerPositionX + 35f, playerPositionX +50f);
+            randY = Random.Range(playerPositionY + 5f, playerPositionY + 10f);
             whereToSpawn = new Vector2(randX, randY);
             Instantiate(enemy, whereToSpawn, Quaternion.identity);
         }

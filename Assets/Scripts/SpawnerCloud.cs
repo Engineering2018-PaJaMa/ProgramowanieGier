@@ -27,34 +27,21 @@ public class SpawnerCloud : MonoBehaviour {
         playerPositionX = player.transform.position.x;
         playerPositionY = player.transform.position.y;
 
-        if(yellowCloud) {
-            if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
+
+        if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
+        {
+            nextSpawn = Time.time + spawnRate;
+            randX = Random.Range(playerPositionX + 15f, playerPositionX + 30f);
+            randY = Random.Range(playerPositionY - 5f, playerPositionY + 20f);
+            whereToSpawn = new Vector2(randX, randY);
+            if (yellowCloud)
             {
-                nextSpawn = Time.time + spawnRate;
-                randX = Random.Range(playerPositionX + 15f, playerPositionX + 30f);
-                randY = Random.Range(playerPositionY - 5f, playerPositionY + 20f);
-                whereToSpawn = new Vector2(randX, randY);
                 Instantiate(yellowClouds, whereToSpawn, Quaternion.identity);
             }
-        } else 
-        {
-            if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
+            else
             {
-                nextSpawn = Time.time + spawnRate;
-                randX = Random.Range(playerPositionX + 15f, playerPositionX + 30f);
-                randY = Random.Range(playerPositionY - 5f, playerPositionY + 20f);
-                whereToSpawn = new Vector2(randX, randY);
                 Instantiate(cloud, whereToSpawn, Quaternion.identity);
             }
         }
-
-        //if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
-        //{
-        //    nextSpawn = Time.time + spawnRate;
-        //    randX = Random.Range(playerPositionX + 15f, playerPositionX + 30f);
-        //    randY = Random.Range(playerPositionY -5f, playerPositionY + 20f);
-        //    whereToSpawn = new Vector2(randX, randY);
-        //    Instantiate(cloud, whereToSpawn, Quaternion.identity);
-        //}
     }
 }

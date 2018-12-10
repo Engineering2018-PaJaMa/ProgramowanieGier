@@ -21,6 +21,12 @@ public class SliceDestroy : MonoBehaviour {
             points += 0.01f;
         }
         pointsToShow.text = "Points: " + Mathf.Round(points).ToString();
+        if (points >10)
+        {
+            SpawnerCloud.yellowCloud = true;
+            SpawnerEnemy.enemyRespawn2 = true;
+        }
+
     }
     
     void OnMouseOver()

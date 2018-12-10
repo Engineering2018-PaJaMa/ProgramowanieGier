@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SpawnerEnemy : MonoBehaviour {
     public GameObject enemy;
+    public GameObject enemy2;
     public GameObject player;
     public float spawnRate = 2f;
+    public static bool enemyRespawn2 = false;
 
     Vector2 whereToSpawn;
     float randX;
@@ -28,10 +30,17 @@ public class SpawnerEnemy : MonoBehaviour {
         if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
         {
             nextSpawn = Time.time + spawnRate;
-            randX = Random.Range(playerPositionX + 10f, playerPositionX + 20f);
-            randY = Random.Range(playerPositionY, playerPositionY + 5f);
+            randX = Random.Range(playerPositionX + 35f, playerPositionX +50f);
+            randY = Random.Range(playerPositionY + 5f, playerPositionY + 10f);
             whereToSpawn = new Vector2(randX, randY);
-            Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            if (enemyRespawn2) 
+            {
+                Instantiate(enemy2, whereToSpawn, Quaternion.identity);
+            }
+            else 
+            {
+                Instantiate(enemy, whereToSpawn, Quaternion.identity);
+            }
         }
 	}
 }

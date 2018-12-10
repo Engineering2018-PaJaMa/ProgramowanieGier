@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnerCloud : MonoBehaviour {
     public GameObject cloud;
     public GameObject player;
+    public GameObject yellowClouds;
     public float spawnRate = 2f;
+    public static bool yellowCloud = false;
 
     float randX;
     float randY;
@@ -25,13 +27,21 @@ public class SpawnerCloud : MonoBehaviour {
         playerPositionX = player.transform.position.x;
         playerPositionY = player.transform.position.y;
 
+
         if (Time.time > nextSpawn && playerPositionX > playerStartingPositionX)
         {
             nextSpawn = Time.time + spawnRate;
             randX = Random.Range(playerPositionX + 15f, playerPositionX + 30f);
-            randY = Random.Range(playerPositionY -5f, playerPositionY + 20f);
+            randY = Random.Range(playerPositionY - 5f, playerPositionY + 20f);
             whereToSpawn = new Vector2(randX, randY);
-            Instantiate(cloud, whereToSpawn, Quaternion.identity);
+            if (yellowCloud)
+            {
+                Instantiate(yellowClouds, whereToSpawn, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(cloud, whereToSpawn, Quaternion.identity);
+            }
         }
     }
 }

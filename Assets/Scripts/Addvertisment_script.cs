@@ -26,9 +26,8 @@ public class Addvertisment_script : MonoBehaviour
         {
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
-                //
-                // YOUR CODE TO REWARD THE GAMER
-                // Give coins etc.
+                DataController.premiumMoney += 10;
+                Debug.Log("Added 10 money");
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");

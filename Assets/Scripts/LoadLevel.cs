@@ -17,6 +17,13 @@ public class LoadLevel : MonoBehaviour {
 
     public void LevelLoader(string levelName)
     {
-        SceneManager.LoadScene(levelName);
+        if(DataController.playerHp > 0)
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        else
+        {
+            Debug.Log("No HP");
+        }
     }
 }

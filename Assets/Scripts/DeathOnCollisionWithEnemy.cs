@@ -30,6 +30,7 @@ public class DeathOnCollisionWithEnemy : MonoBehaviour
         {
             Destroy(player);
             gameStop = true;
+            DataController.playerHp -= 1;
             JumpOnClick.isFlying = false;
             SceneManager.LoadScene("Menu Scene");
             SliceDestroy.points = 0;

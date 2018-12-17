@@ -11,16 +11,16 @@ public class DataController : MonoBehaviour {
     public Text moneyToShow;
     // Use this for initialization
     void Start () {
-        livesToSHow.text = "Lives:" + playerHp;
-        moneyToShow.text = "Money:" + premiumMoney;
+        livesToSHow.text = "Lives:  " + playerHp;
+        moneyToShow.text = "Money:  " + premiumMoney;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if(livesToSHow != null && moneyToShow != null)
         {
-            livesToSHow.text = "Lives:" + playerHp;
-            moneyToShow.text = "Money:" + premiumMoney;
+            livesToSHow.text = "Lives:  " + playerHp;
+            moneyToShow.text = "Money:  " + premiumMoney;
         }
     }
 
@@ -31,7 +31,7 @@ public class DataController : MonoBehaviour {
             playerHp += 1;
             premiumMoney -= 10;
             Debug.Log("Added life. Hp:"+playerHp+" Money:" +premiumMoney);
-            livesToSHow.text = "Lives:" + playerHp;
+            livesToSHow.text = "Lives:  " + playerHp;
         }
         else
         {
@@ -42,7 +42,7 @@ public class DataController : MonoBehaviour {
     public void loseHp()
     {
         playerHp -= 1;
-        livesToSHow.text = "Lives:" + playerHp;
+        livesToSHow.text = "Lives:  " + playerHp;
     }
 
 }

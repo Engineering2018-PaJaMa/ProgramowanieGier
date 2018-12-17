@@ -17,11 +17,6 @@ public class DeathOnCollisionWithEnemy : MonoBehaviour
 
     private void Update()
     {
-        if(gameStop)
-        {
-            //Application.Quit();
-            //SceneManager.LoadScene("Menu Scene");
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -29,7 +24,6 @@ public class DeathOnCollisionWithEnemy : MonoBehaviour
         if(collision.gameObject.tag == "BodyProtoplastaTag")
         {
             Destroy(player);
-            gameStop = true;
             DataController.playerHp -= 1;
             JumpOnClick.isFlying = false;
             SceneManager.LoadScene("Menu Scene");

@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class JumpOnClick : MonoBehaviour
 {
-    private float startTime, endTime;
     private Rigidbody2D myRigidbody2D;
-    public static bool isFlying = false;
+    private float startTime, endTime;
+    private bool canJump;
+
     public Text pointsToShow;
+    public static bool isFlying = false;
 
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        canJump = true;
         isFlying = false;
         startTime = 0f;
         endTime = 0f;
@@ -20,12 +23,12 @@ public class JumpOnClick : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canJump)
         {
             startTime = Time.time;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && canJump)
         {
             endTime = Time.time;
             float power = (endTime - startTime) * 1000f;
@@ -35,12 +38,13 @@ public class JumpOnClick : MonoBehaviour
             Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            if (angle > 90) 
+            if (angle > 90)
             {
                 angle = 80;
             }
 
-            if (angle <0) {
+            if (angle < 0)
+            {
                 angle = 10;
             }
 
@@ -49,6 +53,7 @@ public class JumpOnClick : MonoBehaviour
 
             myRigidbody2D.AddForce(dir * power);
             isFlying = true;
+            canJump = false;
         }
     }
 }

@@ -1,13 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class Addvertisment_script : MonoBehaviour
+public class add_script : MonoBehaviour
 {
+    string gameID = "2951672";
+    bool testMode = true;
+
     void Start()
-    { 
-        Advertisement.Initialize("2951672", true);
-        Debug.Log("Inicjalizacja reklam");
+    {
+        Advertisement.Initialize(gameID, testMode);
     }
 
     public void ShowRewardedAd()
@@ -16,7 +17,10 @@ public class Addvertisment_script : MonoBehaviour
         {
             var options = new ShowOptions { resultCallback = HandleShowResult };
             Advertisement.Show("rewardedVideo", options);
-            Debug.Log("Reklama jest wyświetlana");
+        }
+        else
+        {
+            print("aa");
         }
     }
 
@@ -26,8 +30,7 @@ public class Addvertisment_script : MonoBehaviour
         {
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
-                DataController.premiumMoney += 10;
-                Debug.Log("Added 10 money");
+                // add 10 coin
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");

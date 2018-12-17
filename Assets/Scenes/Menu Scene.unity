@@ -907,8 +907,9 @@ GameObject:
   - component: {fileID: 1375452536}
   - component: {fileID: 1375452538}
   - component: {fileID: 1375452537}
+  - component: {fileID: 1375452539}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Lifes_Tesxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -929,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 89.45}
+  m_AnchoredPosition: {x: -80, y: 87.000015}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1375452537
@@ -972,6 +973,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1375452535}
   m_CullTransparentMesh: 0
+--- !u!114 &1375452539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375452535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02cfe0cd09150e4f8e721e214c2b517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesToSHow: {fileID: 1375452537}
 --- !u!1 &1484439866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02cfe0cd09150e4f8e721e214c2b517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  livesToSHow: {fileID: 0}
 --- !u!114 &2053184231
 MonoBehaviour:
   m_ObjectHideFlags: 0

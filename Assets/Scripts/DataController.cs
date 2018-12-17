@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DataController : MonoBehaviour {
 
     public static int playerHp=3;
     public static int premiumMoney;
+    public Text livesToSHow;
 
 	// Use this for initialization
 	void Start () {
-		
+        livesToSHow.text = "Lives:" + playerHp;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        livesToSHow.text = "Lives:" + playerHp;
+    }
 
     public void addHp()
     {
@@ -24,6 +26,7 @@ public class DataController : MonoBehaviour {
             playerHp += 1;
             premiumMoney -= 10;
             Debug.Log("Added life. Hp:"+playerHp+" Money:" +premiumMoney);
+            livesToSHow.text = "Lives:" + playerHp;
         }
         else
         {
@@ -33,7 +36,8 @@ public class DataController : MonoBehaviour {
 
     public void loseHp()
     {
-        playerHp -= 10;
+        playerHp -= 1;
+        livesToSHow.text = "Lives:" + playerHp;
     }
 
 }

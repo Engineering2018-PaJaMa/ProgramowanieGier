@@ -8,15 +8,20 @@ public class DataController : MonoBehaviour {
     public static int playerHp=3;
     public static int premiumMoney;
     public Text livesToSHow;
-
-	// Use this for initialization
-	void Start () {
+    public Text moneyToShow;
+    // Use this for initialization
+    void Start () {
         livesToSHow.text = "Lives:" + playerHp;
-	}
+        moneyToShow.text = "Money:" + premiumMoney;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        livesToSHow.text = "Lives:" + playerHp;
+        if(livesToSHow != null && moneyToShow != null)
+        {
+            livesToSHow.text = "Lives:" + playerHp;
+            moneyToShow.text = "Money:" + premiumMoney;
+        }
     }
 
     public void addHp()

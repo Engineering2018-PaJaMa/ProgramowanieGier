@@ -7,14 +7,12 @@ public class JumpOnClick : MonoBehaviour
 {
     private float startTime, endTime;
     private Rigidbody2D myRigidbody2D;
-    private bool canJump;
     public static bool isFlying = false;
     public Text pointsToShow;
 
     void Start()
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
-        canJump = true;
         isFlying = false;
         startTime = 0f;
         endTime = 0f;
@@ -22,12 +20,12 @@ public class JumpOnClick : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && canJump)
+        if (Input.GetMouseButtonDown(0))
         {
             startTime = Time.time;
         }
 
-        if (Input.GetMouseButtonUp(0) && canJump)
+        if (Input.GetMouseButtonUp(0))
         {
             endTime = Time.time;
             float power = (endTime - startTime) * 1000f;
@@ -50,9 +48,7 @@ public class JumpOnClick : MonoBehaviour
             print(angle);
 
             myRigidbody2D.AddForce(dir * power);
-            canJump = false;
             isFlying = true;
-
         }
     }
 }
